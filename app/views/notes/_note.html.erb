@@ -1,0 +1,17 @@
+ <div align="center">
+ <li class="post">
+      <span class="user-name">
+
+        <%= note.product.name %>
+
+      </span>
+      <span id="content" >
+      <div>
+        <%= link_to note.content, note_path(note.id) %>
+        </div>
+      </span>
+       <span class="time">
+    <%= note.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </span>
+    </li>
+    </div>

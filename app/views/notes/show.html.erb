@@ -1,0 +1,21 @@
+<p id="notice" class="alert alert-success">
+  <%= notice %>
+</p>
+<p>
+<h2 class="image">image</h2>
+  <% if @note.image? %>
+    <div class="thumbnail">
+      <%= image_tag @note.image.url,class: "profile" %>
+    </div><div class="thumbnail">
+      <%= image_tag @note.image2.url,class: "profile" %>
+    </div>
+  <% end %>
+</p>
+<h2 class="title">タイトル</h2>
+<p class="con"><%= @note.title %></p>
+<h2 class="title">内容</h2>
+<div class="con"><%= @note.content %>
+</div>
+<% if current_product?(@note.product) %>
+<%= link_to "削除", note_path(@note.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
+<%end%>

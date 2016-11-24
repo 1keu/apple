@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<aside class="sidebar">
+<section>
+  <span class="label">プロフィール画像</span>
+  <% if @product.image? %>
+   <h3 class="user-info">
+      <%= image_tag @product.image.url ,class: "profile_img"%>
+    </h3>
+  <% end %>
+</section>
+<section>
+  <span class="label">Name</span>
+   <h3 class="user-info">
+   <%= @product.name %>
+</h3>
+</section>
+
+<section>
+  <span class="label">Email</span>
+   <h3 class="user-info">
+   <%= @product.email %>
+   </h3>
+</section>
+
+<% if current_product?(@product) %>
+ <section>
+ <small>
+<%= link_to 'プロフィール編集', edit_product_path(@product) %>
+</small>
+ </section>
+  <% end %>
+</aside>
+ <ul class="notes">
+   <%= render @notes %>
+</ul>

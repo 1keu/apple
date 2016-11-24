@@ -1,0 +1,49 @@
+<%= form_for(@note) do |f| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= @note.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+        <% @note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <!-- 以下にuser_idを選ぶためのコードを貼り付けてください -->
+  <sidebar>
+   <div class="field1">
+    <% if @note.image? %>
+      <div class="thumbnail">
+        <%= image_tag @note.image.url %>
+      </div>
+    <% end %>
+    <br> <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field2">
+    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+    <% if @note.persisted? && @note.image? %>
+    <% end %>
+     <div class="field2">
+    <% if @note.image2? %>
+      <div class="thumbnail">
+        <%= image2_tag @product.image2.url %>
+      </div>
+    <% end %><br>
+    <%= f.label :image2 %><br>
+    <%= f.file_field :image2%>
+    <%= f.hidden_field :image2_cache %>
+  </div>
+  </div>
+  </sidebar>
+   <%= f.submit "POST!", { class: "button prymary-btn" } %>
+ <h2 class="toukou">タイトル
+  <%= f.text_field :title, { class: "form2-control title-field" } %>
+  </h2>
+  <h2 class="toukou">内容
+  <%= f.text_area :content, { class: "form1-control content-field" } %>
+  </h2>
+<% end %>
