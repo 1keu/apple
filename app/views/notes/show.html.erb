@@ -19,3 +19,26 @@
 <% if current_product?(@note.product) %>
 <%= link_to "削除", note_path(@note.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
 <%end%>
+<script class="vote">
+//変数初期化
+var goods = 0;
+function good()
+{
+var googids = document.getElementById("goodid");
+goods++;
+googids.value = "vote" + goods;
+}
+</script>
+<input id="goodid" type="button" name="good" value="いいね" onmousedown="good()">
+<script class="vote1">
+//変数初期化
+var votes = 0;
+function vote()
+{
+var googids = document.getElementById("voteid");
+votes++;
+googids.value = "vote" + votes;
+}
+
+</script>
+<input id="voteid" type="button" name="vote" value="いいね" onmousedown="vote()">

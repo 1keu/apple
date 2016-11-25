@@ -7,6 +7,6 @@ class Note < ActiveRecord::Base
    validates :product_id, presence: true
     mount_uploader :image2, Image2Uploader
 mount_uploader :image, ImageUploader
-         
+  
           # acts_as_taggable_on :tags のエイリアス
 end
